@@ -1,0 +1,93 @@
+:root {
+    --color-primary: #66fcf1;
+    --color-secondary: #45a29e;
+    --color-grey: #1f2833;
+    --color-black: #0b0c10;
+    --color-white: #c5c6c7;
+    --half-width: clamp(250px, 50vw, 700px);
+    --half-height: clamp(270px, 50vh, 900px);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    background: linear-gradient(
+        to top right,
+        var(--color-primary),
+        var(--color-white)
+    );
+    width: 100vw;
+    height: 100vh;
+}
+
+.calc {
+    position: absolute;
+    width: var(--half-width);
+    height: var(--half-height);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: calc(var(--half-height) * 2 * 0.07) repeat(5, 1fr);
+    gap: 5px;
+    background-color: var(--color-primary);
+    box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.calc-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-white);
+    font-size: 1.25rem;
+    background-color: var(--color-black);
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.calc-btn:hover {
+    opacity: 0.95;
+}
+
+.answer-box {
+    grid-column: 1 / span 4;
+    color: var(--color-primary);
+    background-color: var(--color-grey);
+    width: var(--half-width);
+    padding: 5px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 1.3rem;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow-y: auto;
+    height: 100%;
+}
+
+.clear {
+    grid-column: 1 / span 2;
+}
+
+.equals {
+    grid-column: 3 / span 2;
+}
+
+@media screen and (max-width: 700px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    html {
+        font-size: 12px;
+    }
+}
